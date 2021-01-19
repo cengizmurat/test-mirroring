@@ -1,4 +1,4 @@
-const apiBaseUrl = window.location.href.split('?')[0]
+const apiBaseUrl = 'https://grafana-chart.apps.c1.ocp.dev.sgcip.com'
 
 let defaultCompanies;
 const times = [
@@ -112,7 +112,7 @@ async function createMultipleSelectionList() {
     const string = new URLSearchParams({
       companies: selectedCompanies.join(','),
     }).toString();
-    window.history.pushState({}, '', apiBaseUrl + '?' + string);
+    window.history.pushState({}, '', window.location.href.split('?')[0] + '?' + string);
     updateGraphs(selectedCompanies)
   }
 
